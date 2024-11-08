@@ -1,10 +1,6 @@
 ﻿namespace BkSkate;
 public partial class MainPage : ContentPage
 {
-	public MainPage()
-	{
-		InitializeComponent();
-	}
 bool Morreu = false;
 bool pulo = false;
 const int TempoEntreFrames = 25;
@@ -13,6 +9,13 @@ int velocidade2 = 0;
 int velocidade = 0;
 int LarguraJanela = 0;
 int AlturaJanela = 0;
+	public MainPage()
+	{
+		InitializeComponent();
+		player = new Player(imgPlayer);
+		Player.Run();
+	}
+
 
 	protected override void OnSizedAllocated(double w, double h)
 	{
