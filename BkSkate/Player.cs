@@ -5,9 +5,9 @@ public class Player : Animacao
 {
     public Player (Image a) : base (a)
     {
-        for (int i = 1; i <25; ++i)
-            Animacao1.Add ($""{ i.ToString (D2)}.png);
-        for (int i=1; i <25; ++i)
+        for (int i = 1; i <12; ++i)
+            Animacao1.Add ($"mario"{ i.ToString (D2)}.png);
+        for (int i=1; i <12; ++i)
         Animacao2.Add ($""{ i.ToString (D2)}.png);
         SetAnimacaoAtiva (1);
     }
