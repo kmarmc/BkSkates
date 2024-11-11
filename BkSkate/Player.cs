@@ -20,6 +20,6 @@ public class Player : Animacao
     {
         loop = true;
         SetAnimacaoAtiva(1);
-        Player();
+        Play();
     }
 }

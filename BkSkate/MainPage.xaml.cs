@@ -9,11 +9,12 @@ int velocidade2 = 0;
 int velocidade = 0;
 int LarguraJanela = 0;
 int AlturaJanela = 0;
+Player player;
 	public MainPage()
 	{
 		InitializeComponent();
-		player = new Player(imgPlayer);
-		Player.Run();
+		player = new Player(imgplayer);
+		player.Run();
 	}
 
 
@@ -34,9 +35,9 @@ int AlturaJanela = 0;
 		foreach (var a in HSLayer1.Children)
 			(a as Image).WidthRequest = w;
 		foreach (var b in HSLayer2.Children)
-			(a as Image).WidthRequest = w;
+			(b as Image).WidthRequest = w;
 		foreach (var c in HSLayerChao.Children)
-			(a as Image).WidthRequest = w;
+			(c as Image).WidthRequest = w;
 		HSLayer1.WidthRequest = w * 1.5;
 		HSLayer2.WidthRequest = w * 1.5;
 		HSLayerChao.WidthRequest = w * 1.5;
@@ -75,7 +76,7 @@ int AlturaJanela = 0;
 	}
 	protected override void OnAppearing()
 	{
-		Base.OnAppearing();
+		base.OnAppearing();
 		Desenha();
 	}
 }

@@ -13,13 +13,20 @@
                         <Image Source="fundinho.png"/>
                         <Image Source="fundinho.png"/>
                 </HorizontalStackLayout>
-                <HorizontalStackLayout x:Name ="HSLayerChao"
-                                HeightRequest ="80"
-                                VerticalOptions="End">
+                <HorizontalStackLayout x:Name="HSLayerChao"
+                                       HeightRequest="80"
+                                       VerticalOptions="End">
                         <Image Source="chao.png"/>
                         <Image Source="chao.png"/>
-                        <Image Source="chao.png"/>                        
+                        <Image Source="chao.png"/>
                 </HorizontalStackLayout>
+
+                <Image x:Name="imgplayer"
+                       Source="mario01.png"
+                       HeightRequest="200"
+                       WidthRequest="180"
+                       VerticalOptions="End"
+                       HorizontalOptions="Start"/>
 
         </Grid>
 </ContentPage>
