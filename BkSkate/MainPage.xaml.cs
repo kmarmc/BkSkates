@@ -17,11 +17,11 @@ int AlturaJanela = 0;
 	}
 
 
-	protected override void OnSizedAllocated(double w, double h)
+	protected override void OnSizeAllocated(double w, double h)
 	{
-		base.OnSizedAllocated(w, h);
+		base.OnSizeAllocated(w, h);
 		CorrigeTamanhoCenario(w, h);
-		CalcularVelocidade;
+		CalcularVelocidade(w);
 	}
 	void CalcularVelocidade(double w)
 	{
@@ -65,12 +65,12 @@ int AlturaJanela = 0;
 			HSL.TranslationX = view.TranslationX;
 		}
 	}
-	asynic TaskDesenha()
+	async Task Desenha()
 	{
 		while (!Morreu)
 		{
 			GerenciarCenarios();
-			await TaskDelay(TempoEntreFrames);
+			await Task.Delay(TempoEntreFrames);
 		}
 	}
 	protected override void OnAppearing()
