@@ -71,6 +71,7 @@ Player player;
 		while (!Morreu)
 		{
 			GerenciarCenarios();
+			player.Desenha();
 			await Task.Delay(TempoEntreFrames);
 		}
 	}
