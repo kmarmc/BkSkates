@@ -80,4 +80,5 @@ Player player;
 		base.OnAppearing();
 		Desenha();
 	}
+	
 }

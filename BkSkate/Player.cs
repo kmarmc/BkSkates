@@ -1,9 +1,10 @@
 using System.Linq.Expressions;
+using FFImageLoading.Maui;
 
 public delegate void CallBack ();
 public class Player : Animacao
 {
-    public Player (Image a) : base (a)
+    public Player(CachedImageView a):base(a)
     {
         for (int i = 1; i <12; ++i)
          animacao1.Add($"mario{i.ToString("D2")}.png");

@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BkSkate.MainPage"
-             Shell.NavBarIsVisible="False">
-        <Grid>
+             xmlns:ff="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="Black">        <Grid>
                 <HorizontalStackLayout x:Name="HSLayer1">
                         <Image Source="fundao.png"
                                 Aspect="AspectFill"
@@ -44,12 +45,13 @@
 
                 </HorizontalStackLayout>
 
-                <Image x:Name="imgplayer"
-                       Source="mario01.png"
-                       HeightRequest="200"
-                       WidthRequest="180"
-                       VerticalOptions="End"
-                       HorizontalOptions="Start"/>
-
+        <ff:CachedImageView x:Name="imgplayer"
+             CacheType="All"
+             CacheDuration="365"
+             Source="mario01.png"
+             HeightRequest="200"
+             WidthRequest="180"
+             VerticalOptions="End"
+             HorizontalOptions="Start"/>
         </Grid>
 </ContentPage>
