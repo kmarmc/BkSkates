@@ -1,15 +1,25 @@
 ﻿namespace BkSkate;
 public partial class MainPage : ContentPage
 {
-bool Morreu = false;
-bool pulo = false;
-const int TempoEntreFrames = 25;
-int velocidade1 = 0;
-int velocidade2 = 0;
-int velocidade = 0;
-int LarguraJanela = 0;
-int AlturaJanela = 0;
-Player player;
+	bool Morreu = false;
+	bool pulo = false;
+	const int TempoEntreFrames = 25;
+	int velocidade1 = 0;
+	int velocidade2 = 0;
+	int velocidade = 0;
+	int LarguraJanela = 0;
+	int AlturaJanela = 0;
+	Player player;
+	const int ForcaGravidade = 6;
+	bool EstaNoChao = true;
+	bool EstaNoAr = false;
+	bool EstaPulando = false;
+	int TempoPulando = 0;
+	int TempoNoAr = 0;
+	const int ForcaPulo = 8;
+	const int maxTempoPulando = 6;
+	const int maxTempoNoAr = 4;
+
 	public MainPage()
 	{
 		InitializeComponent();
@@ -80,5 +90,43 @@ Player player;
 		base.OnAppearing();
 		Desenha();
 	}
-	
+	void AplicaPulo()
+	{
+		EstaNoChao = false;
+		if (EstaPulando && TempoPulando >= maxTempoPulando)
+		{
+			EstaPulando = false;
+			EstaNoAr = true;
+			TempoNoAr = 0;
+		}
+		else if (EstaNoAr && TempoNoAr > +maxTempoNoAr)
+		{
+			EstaPulando = false;
+			EstaNoAr = false;
+			TempoPulando = 0;
+			TempoNoAr = 0;
+		}
+		else if (EstaPulando && TempoPulando >= maxTempoPulando)
+		{
+			player.MoveY(-ForcaPulo);
+			TempoPulando++;
+		}
+		else if (EstaNoAr)
+			TempoNoAr++;
+	}
+	void OnGridTapped(object o, TappedEventArgs a)
+	{
+		if (EstaNoChao)
+			EstaPulando = true;
+	}
+	void AplicaGravidade ()
+	{
+		if (player.GetY() <0)
+			player.MoveY (ForcaGravidade);
+		else if (player.GetY()>= 0)
+		{
+			player.SetY(0);
+			EstaNoChao = true;
+		}
+	}
 }
