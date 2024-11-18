@@ -5,54 +5,57 @@
              xmlns:ff="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
              Shell.NavBarIsVisible="False"
              BackgroundColor="Black">
-        <Grid>
-                <HorizontalStackLayout x:Name="HSLayer1">
-                        <Image Source="fundao.png"
-                               Aspect="AspectFill"
-                               VerticalOptions="Fill"/>
-                        <Image Source="fundao.png"
-                               Aspect="AspectFill"
-                               VerticalOptions="Fill"/>
-                        <Image Source="fundao.png"
-                               Aspect="AspectFill"
-                               VerticalOptions="Fill"/>
-                </HorizontalStackLayout>
-                <HorizontalStackLayout x:Name="HSLayer2">
-                        <Image Source="fundinho.png"
-                               Aspect="AspectFill"
-                               VerticalOptions="Fill"/>
-                        <Image Source="fundinho.png"
-                               Aspect="AspectFill"
-                               VerticalOptions="Fill"/>
-                        <Image Source="fundinho.png"
-                               Aspect="AspectFill"
-                               VerticalOptions="Fill"/>
-                </HorizontalStackLayout>
-                <HorizontalStackLayout x:Name="HSLayerChao"
-                                       HeightRequest="100"
-                                       VerticalOptions="End">
-                        <Image Source="chao.png"
-                               HorizontalOptions="Fill"
-                               HeightRequest="100"
-                               Aspect="Fill"/>
-                        <Image Source="chao.png"
-                               HorizontalOptions="Fill"
-                               HeightRequest="100"
-                               Aspect="Fill"/>
-                        <Image Source="chao.png"
-                               HorizontalOptions="Fill"
-                               HeightRequest="100"
-                               Aspect="Fill"/>
+       <Grid>
+              <Grid.GestureRecognizers>
+                     <TapGestureRecognizer Tapped="OnGridTapped"/>
+              </Grid.GestureRecognizers>
+              <HorizontalStackLayout x:Name="HSLayer1">
+                     <Image Source="fundao.png"
+                            Aspect="AspectFill"
+                            VerticalOptions="Fill"/>
+                     <Image Source="fundao.png"
+                            Aspect="AspectFill"
+                            VerticalOptions="Fill"/>
+                     <Image Source="fundao.png"
+                            Aspect="AspectFill"
+                            VerticalOptions="Fill"/>
+              </HorizontalStackLayout>
+              <HorizontalStackLayout x:Name="HSLayer2">
+                     <Image Source="fundinho.png"
+                            Aspect="AspectFill"
+                            VerticalOptions="Fill"/>
+                     <Image Source="fundinho.png"
+                            Aspect="AspectFill"
+                            VerticalOptions="Fill"/>
+                     <Image Source="fundinho.png"
+                            Aspect="AspectFill"
+                            VerticalOptions="Fill"/>
+              </HorizontalStackLayout>
+              <HorizontalStackLayout x:Name="HSLayerChao"
+                                     HeightRequest="100"
+                                     VerticalOptions="End">
+                     <Image Source="chao.png"
+                            HorizontalOptions="Fill"
+                            HeightRequest="100"
+                            Aspect="Fill"/>
+                     <Image Source="chao.png"
+                            HorizontalOptions="Fill"
+                            HeightRequest="100"
+                            Aspect="Fill"/>
+                     <Image Source="chao.png"
+                            HorizontalOptions="Fill"
+                            HeightRequest="100"
+                            Aspect="Fill"/>
 
-                </HorizontalStackLayout>
+              </HorizontalStackLayout>
 
-                <ff:CachedImageView x:Name="imgplayer"
-                                    CacheType="All"
-                                    CacheDuration="365"
-                                    Source="mario01.png"
-                                    HeightRequest="200"
-                                    WidthRequest="180"
-                                    VerticalOptions="End"
-                                    HorizontalOptions="Start"/>
-        </Grid>
+              <ff:CachedImageView x:Name="imgplayer"
+                                  CacheType="All"
+                                  CacheDuration="365"
+                                  Source="mario01.png"
+                                  HeightRequest="200"
+                                  WidthRequest="180"
+                                  VerticalOptions="End"
+                                  HorizontalOptions="Start"/>
+       </Grid>
 </ContentPage>

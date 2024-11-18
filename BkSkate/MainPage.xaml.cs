@@ -16,8 +16,8 @@ public partial class MainPage : ContentPage
 	bool EstaPulando = false;
 	int TempoPulando = 0;
 	int TempoNoAr = 0;
-	const int ForcaPulo = 8;
-	const int maxTempoPulando = 6;
+	const int ForcaPulo = 12;
+	const int maxTempoPulando = 10;
 	const int maxTempoNoAr = 4;
 
 	public MainPage()
@@ -81,7 +81,13 @@ public partial class MainPage : ContentPage
 		while (!Morreu)
 		{
 			GerenciarCenarios();
-			player.Desenha();
+			if (!EstaPulando && !EstaNoAr)
+			{
+				AplicaGravidade();
+				player.Desenha();
+			}
+			else
+				AplicaPulo();
 			await Task.Delay(TempoEntreFrames);
 		}
 	}
@@ -99,14 +105,14 @@ public partial class MainPage : ContentPage
 			EstaNoAr = true;
 			TempoNoAr = 0;
 		}
-		else if (EstaNoAr && TempoNoAr > +maxTempoNoAr)
+		else if (EstaNoAr && TempoNoAr >= maxTempoNoAr)
 		{
 			EstaPulando = false;
 			EstaNoAr = false;
 			TempoPulando = 0;
 			TempoNoAr = 0;
 		}
-		else if (EstaPulando && TempoPulando >= maxTempoPulando)
+		else if (EstaPulando && TempoPulando < maxTempoPulando)
 		{
 			player.MoveY(-ForcaPulo);
 			TempoPulando++;
@@ -119,11 +125,11 @@ public partial class MainPage : ContentPage
 		if (EstaNoChao)
 			EstaPulando = true;
 	}
-	void AplicaGravidade ()
+	void AplicaGravidade()
 	{
-		if (player.GetY() <0)
-			player.MoveY (ForcaGravidade);
-		else if (player.GetY()>= 0)
+		if (player.GetY() < 0)
+			player.MoveY(ForcaGravidade);
+		else if (player.GetY() >= 0)
 		{
 			player.SetY(0);
 			EstaNoChao = true;
