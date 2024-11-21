@@ -19,6 +19,7 @@ public partial class MainPage : ContentPage
 	const int ForcaPulo = 12;
 	const int maxTempoPulando = 10;
 	const int maxTempoNoAr = 4;
+	Inimigos inimigos;
 
 	public MainPage()
 	{
@@ -33,6 +34,11 @@ public partial class MainPage : ContentPage
 		base.OnSizeAllocated(w, h);
 		CorrigeTamanhoCenario(w, h);
 		CalcularVelocidade(w);
+		inimigos = new Inimigos(-w);
+		inimigos.Add(new Inimigo(imgInimigo1));
+		inimigos.Add(new Inimigo(imgInimigo2));
+		inimigos.Add(new Inimigo(imgInimigo3));
+		inimigos.Add(new Inimigo(imgInimigo4));
 	}
 	void CalcularVelocidade(double w)
 	{
@@ -81,6 +87,8 @@ public partial class MainPage : ContentPage
 		while (!Morreu)
 		{
 			GerenciarCenarios();
+			if (inimigos != nuul)
+				inimigos.Desenha(velocidade);
 			if (!EstaPulando && !EstaNoAr)
 			{
 				AplicaGravidade();
