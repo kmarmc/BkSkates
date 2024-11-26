@@ -29,7 +29,7 @@ public class Animacao
     {
         if (parado)
             return;
-        string nomeArquivo = "";
+        string nomeArquivo = "mario01.png";
         int tamanhoArquivo = 0;
         if (animacaoAtiva == 1)
         {

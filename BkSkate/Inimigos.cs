@@ -1,27 +1,4 @@
-using FFImageLoading.Maui;
-
 namespace BkSkate;
-
-public class Inimigo
-{
-    Image imageView;
-    public Inimigo(Image a)
-    {
-        imageView=a;
-    }
-    public void MoveX(double s)
-    {
-        imageView.TranslationX-=s;
-    }
-    public double GetX()
-    {
-        return imageView.TranslationX;
-    }
-    public void Reset()
-    {
-        imageView.TranslationX=500;
-    }
-}
 
 public class Inimigos
 {
@@ -46,8 +23,19 @@ public class Inimigos
          e.Reset();
     }
 
-    internal void Desenha(int velocidade)
+     void Gerencia()
     {
-        throw new NotImplementedException();
+        if(atual.GetX() < minX)
+        {
+            Iniciar();
+            var r = Random.Shared.Next(0, inimigos.Count);
+            atual = inimigos[r];
+        }
+    }
+
+    internal void Desenha(int veloc)
+    {
+        atual.MoveX(veloc);
+        Gerencia();
     }
 }
