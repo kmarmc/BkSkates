@@ -57,5 +57,23 @@
                                   WidthRequest="180"
                                   VerticalOptions="End"
                                   HorizontalOptions="Start"/>
+
+                     <Image Source="inimigo1.png"
+                            x:Name="imgInimigo1"
+                            HorizontalOptions="End"
+                            HeightRequest="100"/>
+                     <Image Source="inimigo2.png"
+                            x:Name="imgInimigo2"
+                            HorizontalOptions="Fill"
+                            HeightRequest="100"/>
+                     <Image Source="inimigo3.png"
+                            x:Name="imgInimigo3"
+                            HorizontalOptions="End"
+                            HeightRequest="100"/>
+                     <Image Source="inimigo4.png"
+                            x:Name="imgInimigo4"
+                            HorizontalOptions="End"
+                            HeightRequest="100"/>
+
        </Grid>
 </ContentPage>

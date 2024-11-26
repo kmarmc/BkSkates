@@ -26,7 +26,7 @@ public class Inimigo
 public class Inimigos
 {
     List<Inimigo> inimigos= new List<Inimigo>();
-    Inimigo atual=nuul;
+    private Inimigo atual = null;
     double minX=0;
     
     public Inimigos(double a)

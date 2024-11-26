@@ -87,7 +87,7 @@ public partial class MainPage : ContentPage
 		while (!Morreu)
 		{
 			GerenciarCenarios();
-			if (inimigos != nuul)
+			if (inimigos != null)
 				inimigos.Desenha(velocidade);
 			if (!EstaPulando && !EstaNoAr)
 			{
