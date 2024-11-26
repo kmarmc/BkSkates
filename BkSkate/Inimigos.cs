@@ -45,4 +45,9 @@ public class Inimigos
         foreach(var e in inimigos)
          e.Reset();
     }
+
+    internal void Desenha(int velocidade)
+    {
+        throw new NotImplementedException();
+    }
 }
